@@ -1,13 +1,13 @@
 package stellarburgres.order;
 
-
 import io.qameta.allure.Step;
-import io.restassured.RestAssured;
+import io.restassured.response.ValidatableResponse;
 import stellarburgres.RestClient;
 
 import static org.apache.http.HttpStatus.*;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
+
+import static io.restassured.RestAssured.given;
 
 public class OrderClient extends RestClient {
 
@@ -17,7 +17,7 @@ public class OrderClient extends RestClient {
     @Step("Get ingredient from the response array")
     public String getIngredient(int index) {
         String path = "data[" + index + "]._id";
-        return RestAssured.given()
+        return given()
                 .spec(getBaseSpec())
                 .when()
                 .get(INGREDIENTS)
@@ -29,7 +29,7 @@ public class OrderClient extends RestClient {
 
     @Step("Making an order with ingredients by authorized user")
     public void makeOrderWithIngredientsWithAuthorization(Order order, String token) {
-        RestAssured.given()
+        given()
                 .spec(getBaseSpec())
                 .auth().oauth2(token)
                 .body(order)
@@ -45,7 +45,7 @@ public class OrderClient extends RestClient {
 
     @Step("Making an order with ingredients by unauthorized user")
     public void makeOrderWithIngredientsWithoutAuthorization(Order order) {
-        RestAssured.given()
+        given()
                 .spec(getBaseSpec())
                 .body(order)
                 .when()
@@ -59,7 +59,7 @@ public class OrderClient extends RestClient {
 
     @Step("Making an order without ingredients by authorized user")
     public void makeOrderWithoutIngredientsWithAuthorization(Order order, String token) {
-        RestAssured.given()
+        given()
                 .spec(getBaseSpec())
                 .auth().oauth2(token)
                 .body(order)
@@ -74,7 +74,7 @@ public class OrderClient extends RestClient {
 
     @Step("Making an order without ingredient by unauthorized user")
     public void makeOrderWithoutIngredientsWithoutAuthorization(Order order) {
-        RestAssured.given()
+        given()
                 .spec(getBaseSpec())
                 .body(order)
                 .when()
@@ -88,7 +88,7 @@ public class OrderClient extends RestClient {
 
     @Step("Making an order with invalid ingredient's hash by authorized user")
     public void makeOrderWithInvalidIngredientHashWithAuthorization(Order order, String token) {
-        RestAssured.given()
+        given()
                 .spec(getBaseSpec())
                 .auth().oauth2(token)
                 .body(order)
@@ -101,7 +101,7 @@ public class OrderClient extends RestClient {
 
     @Step("Making an order with invalid ingredient's hash by unauthorized user")
     public void makeOrderWithInvalidIngredientHashWithoutAuthorization(Order order) {
-        RestAssured.given()
+        given()
                 .spec(getBaseSpec())
                 .body(order)
                 .when()
@@ -112,23 +112,18 @@ public class OrderClient extends RestClient {
     }
 
     @Step("Get user's orders with authorization")
-    public void getOrdersWithAuthorization(String token, int total) {
-        RestAssured.given()
+    public ValidatableResponse getOrdersWithAuthorization(String token) {
+        return given()
                 .spec(getBaseSpec())
                 .auth().oauth2(token)
                 .when()
                 .get(ORDERS)
-                .then()
-                .assertThat()
-                .statusCode(SC_OK)
-                .body("success", equalTo(true))
-                .body("total", equalTo(total))
-                .body("totalToday", equalTo(total));
+                .then();
     }
 
     @Step("Get user's orders without authorization")
     public void getOrdersWithoutAuthorization() {
-        RestAssured.given()
+        given()
                 .spec(getBaseSpec())
                 .when()
                 .get(ORDERS)
