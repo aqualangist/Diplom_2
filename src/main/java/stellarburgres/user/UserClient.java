@@ -30,7 +30,7 @@ public class UserClient  extends RestClient {
         return new User(email, password, name);
     }
 
-    @Step("Register a new user with correct data successfully")
+    @Step("Success registration with correct data")
     public void registerWithCorrectUserData(User user) {
         RestAssured.given()
                 .spec(getBaseSpec())
@@ -44,7 +44,7 @@ public class UserClient  extends RestClient {
                 .statusCode(SC_OK);
     }
 
-    @Step("Register a new user with existing unsuccessfully")
+    @Step("Not success registration with existing data")
     public void registerWithExistingUserData(User user) {
         RestAssured.given()
                 .spec(getBaseSpec())
@@ -59,7 +59,7 @@ public class UserClient  extends RestClient {
     }
 
 
-    @Step("Register a new user with missing required field unsuccessfully")
+    @Step("Not success registration without required field")
     public void registerWithMissingField(User user) {
         RestAssured.given()
                 .spec(getBaseSpec())
@@ -73,7 +73,7 @@ public class UserClient  extends RestClient {
                 .statusCode(SC_FORBIDDEN);
     }
 
-    @Step("Login with correct credentials, returns status code = 200")
+    @Step("Login with correct credentials returns status code = 200")
     public String loginWithCorrectCredentials(UserCredentials credentials) {
         return RestAssured.given()
                 .spec(getBaseSpec())
@@ -92,7 +92,7 @@ public class UserClient  extends RestClient {
                 .substring(7);
     }
 
-    @Step("Login with incorrect credentials, returns status code = 401")
+    @Step("Login with incorrect credentials returns status code = 401")
     public void loginWithIncorrectCredentials(UserCredentials credentials) {
         RestAssured.given()
                 .spec(getBaseSpec())

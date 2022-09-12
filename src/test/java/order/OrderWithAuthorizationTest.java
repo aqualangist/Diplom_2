@@ -11,7 +11,6 @@ import stellarburgres.user.User;
 import stellarburgres.user.UserClient;
 import stellarburgres.order.Ingredient;
 import stellarburgres.user.UserCredentials;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -52,7 +51,7 @@ public class OrderWithAuthorizationTest {
     @DisplayName("Make order without ingredients by authorized user, returns 400 Bad Request")
     @Description("Register and log in new user. Make order without ingredients. " +
             "Response should has status code is 400 and message: \"Ingredient ids must be provided\".")
-    public void makeOrderWithoutIngredientsAuthorizedTests() {
+    public void makeOrderWithoutIngredientsAuthorizedReturns400Test() {
         Order order = Order.builder().build();
         orderClient.makeOrderWithoutIngredientsWithAuthorization(order, token);
     }
@@ -61,7 +60,7 @@ public class OrderWithAuthorizationTest {
     @DisplayName("Make order with one valid ingredient by authorized user, returns 200 OK")
     @Description("Register and log in new user. Make order with one valid hash of ingredient. " +
             "Response should has status code is 200, order's number is not null.")
-    public void makeOrderWithOneValidIngredientAuthorizedTests() {
+    public void makeOrderWithOneValidIngredientAuthorizedReturns200Test() {
         int index = new Random().nextInt(5);
         String ingredientHash = orderClient.getIngredient(index);
 
@@ -76,7 +75,7 @@ public class OrderWithAuthorizationTest {
     @DisplayName("Make order with invalid ingredient by authorized user, returns 500 Internal Server Error")
     @Description("Register and log in new user. Make order with one invalid hash of ingredient. " +
             "Response should has status code is 500.")
-    public void makeOrderWithInvalidIngredientAuthorizedTests() {
+    public void makeOrderWithInvalidIngredientAuthorizedReturns500Test() {
         int index = new Random().nextInt(5);
         String invalidIngredientHash = orderClient.getIngredient(index) + "j";
 
@@ -91,7 +90,7 @@ public class OrderWithAuthorizationTest {
     @DisplayName("Make order with more than one valid ingredients by authorized user, returns 200 OK")
     @Description("Register and log in new user. Make order with invalid hashes of ingredients. " +
             "Response should has status code is 200 and order's number is not null.")
-    public void makeOrderWithValidIngredientsAuthorizedTest() {
+    public void makeOrderWithValidIngredientsAuthorizedReturns200Test() {
         int firstIndex = new Random().nextInt(5);
         String firstIngredientHash = orderClient.getIngredient(firstIndex);
 
@@ -111,7 +110,7 @@ public class OrderWithAuthorizationTest {
             "returns 500 Internal Server Error")
     @Description("Register and log in new user. Make order with two ingredients - valid and invalid hashes. " +
             "Response should has status code is 500.")
-    public void makeOrderWithInvalidIngredientsUnauthorizedTest() {
+    public void makeOrderWithInvalidIngredientsUnauthorizedReturns500Test() {
         int index = new Random().nextInt(5);
         String validIngredientHash = orderClient.getIngredient(index);
         String invalidIngredientHash = orderClient.getIngredient(index) + "z";

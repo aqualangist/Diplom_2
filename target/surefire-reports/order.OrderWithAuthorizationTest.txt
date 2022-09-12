@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+Test set: order.OrderWithAuthorizationTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 4, Errors: 2, Skipped: 0, Time elapsed: 3.151 s <<< FAILURE! - in order.OrderWithAuthorizationTest
+makeOrderWithInvalidIngredientAuthorizedReturns500Test(order.OrderWithAuthorizationTest)  Time elapsed: 0.899 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <500> but was <429>.
+
+	at order.OrderWithAuthorizationTest.makeOrderWithInvalidIngredientAuthorizedReturns500Test(OrderWithAuthorizationTest.java:86)
+
+makeOrderWithOneValidIngredientAuthorizedReturns200Test(order.OrderWithAuthorizationTest)  Time elapsed: 0.317 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <429>.
+
+	at order.OrderWithAuthorizationTest.setUp(OrderWithAuthorizationTest.java:42)
+
+makeOrderWithOneValidIngredientAuthorizedReturns200Test(order.OrderWithAuthorizationTest)  Time elapsed: 0.317 s  <<< ERROR!
+java.lang.IllegalArgumentException: accessToken cannot be null
+	at order.OrderWithAuthorizationTest.tearDown(OrderWithAuthorizationTest.java:47)
+
+makeOrderWithoutIngredientsAuthorizedReturns400Test(order.OrderWithAuthorizationTest)  Time elapsed: 0.757 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <400> but was <429>.
+
+	at order.OrderWithAuthorizationTest.makeOrderWithoutIngredientsAuthorizedReturns400Test(OrderWithAuthorizationTest.java:56)
+
+makeOrderWithValidIngredientsAuthorizedReturns200Test(order.OrderWithAuthorizationTest)  Time elapsed: 0.132 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+XML path success doesn't match.
+Expected: <true>
+  Actual: <429 Too Many Requests429 Too Many Requestsnullnginx/1.18.0 (Ubuntu)>
+
+	at order.OrderWithAuthorizationTest.setUp(OrderWithAuthorizationTest.java:35)
+
+makeOrderWithValidIngredientsAuthorizedReturns200Test(order.OrderWithAuthorizationTest)  Time elapsed: 0.132 s  <<< ERROR!
+java.lang.IllegalArgumentException: accessToken cannot be null
+	at order.OrderWithAuthorizationTest.tearDown(OrderWithAuthorizationTest.java:47)
+

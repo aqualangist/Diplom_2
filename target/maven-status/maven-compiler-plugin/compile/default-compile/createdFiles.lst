@@ -1,0 +1,13 @@
+stellarburgres\order\Order$OrderBuilder.class
+stellarburgres\user\User$UserBuilder.class
+stellarburgres\user\UserClient.class
+stellarburgres\RestClient.class
+stellarburgres\order\Order.class
+stellarburgres\user\User.class
+stellarburgres\order\Ingredient$IngredientBuilder.class
+stellarburgres\order\OrderClient.class
+stellarburgres\user\UserCredentials.class
+stellarburgres\user\Token.class
+stellarburgres\user\UserCredentials$UserCredentialsBuilder.class
+stellarburgres\order\Ingredient.class
+stellarburgres\user\Token$TokenBuilder.class

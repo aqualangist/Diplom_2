@@ -6,7 +6,6 @@ import org.junit.Test;
 import stellarburgres.order.Order;
 import stellarburgres.order.Ingredient;
 import stellarburgres.order.OrderClient;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -43,7 +42,7 @@ public class OrderWithoutAuthorizationTest {
     @DisplayName("Make order with one invalid ingredient, user isn't authorized, returns 500 Internal Server Error")
     @Description("Make order with one invalid hash of ingredient. " +
             "Response should has status code.")
-    public void makeOrderWithOneInvalidIngredientUserIsNotAuthorizedReturns500() {
+    public void makeOrderWithOneInvalidIngredientNotAuthorizedReturns500() {
         String invalidIngredientHash = "61c0c5a71d1f82001bdaaa6r";
 
         List<Ingredient> ingredientsList = new ArrayList<>();
@@ -57,7 +56,7 @@ public class OrderWithoutAuthorizationTest {
     @DisplayName("Make order with more than one valid ingredients, user isn't authorized, returns 200 OK")
     @Description("Make order with invalid hashes of ingredients. " +
             "Response should has status code is 200 and order's number isn't null.")
-    public void makeOrderWithValidIngredientsUserIsNotAuthorizedReturns200() {
+    public void makeOrderWithValidIngredientsNotAuthorizedReturns200() {
         int firstIndex = new Random().nextInt(14);
         String firstIngredientHash = orderClient.getIngredient(firstIndex);
 
@@ -77,7 +76,7 @@ public class OrderWithoutAuthorizationTest {
             "returns 500 Internal Server Error")
     @Description("Create an order with two ingredients - valid and invalid hashes. " +
             "Response should has status code is 500.")
-    public void makeOrderWithInvalidIngredientsUserIsNotAuthorizedReturns500() {
+    public void makeOrderWithInvalidIngredientsNotAuthorizedReturns500() {
         int index = new Random().nextInt(14);
         String validIngredientHash = orderClient.getIngredient(index);
         String invalidIngredientHash = orderClient.getIngredient(index) + "q";
