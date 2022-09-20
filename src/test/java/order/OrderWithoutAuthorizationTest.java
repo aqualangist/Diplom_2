@@ -5,14 +5,11 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import stellarburgres.order.Order;
 import stellarburgres.order.Ingredient;
-import stellarburgres.order.OrderClient;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class OrderWithoutAuthorizationTest {
-
-        OrderClient orderClient = new OrderClient();
+public class OrderWithoutAuthorizationTest extends BaseOrderTest {
 
         @Test
         @DisplayName("Make order without ingredients, user isn't authorized, returns 400 Bad Request")

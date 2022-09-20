@@ -8,7 +8,7 @@ import org.junit.Test;
 import stellarburgres.user.User;
 import stellarburgres.user.UserCredentials;
 
-public class UserLoginTest extends BaseTest {
+public class UserLoginUserTest extends BaseUserTest {
 
     @Before
     public void setUp() {

@@ -9,7 +9,7 @@ import org.junit.Test;
 import stellarburgres.user.User;
 import stellarburgres.user.UserCredentials;
 
-public class UpdateUserInformationWithAuthorizationTest extends BaseTest {
+public class UpdateUserInformationWithAuthorizationUserTest extends BaseUserTest {
 
     @Before
     public void setUp() {

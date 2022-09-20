@@ -1,16 +1,16 @@
-package user;
+package order;
 
-import org.junit.After;
+import stellarburgres.order.OrderClient;
 import stellarburgres.user.User;
 import stellarburgres.user.UserClient;
 import stellarburgres.user.UserCredentials;
 
-public class BaseTest {
+public class BaseOrderTest {
 
+    OrderClient orderClient = new OrderClient();
     UserClient userClient = new UserClient();
-    User credentials;
+    UserCredentials credentials;
     User user;
-    UserCredentials userCredentials;
     String token;
 
 }

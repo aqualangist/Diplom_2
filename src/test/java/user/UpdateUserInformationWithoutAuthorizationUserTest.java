@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import stellarburgres.user.User;
 
-public class UpdateUserInformationWithoutAuthorizationTest extends BaseTest {
+public class UpdateUserInformationWithoutAuthorizationUserTest extends BaseUserTest {
 
     @Test
     @DisplayName("Update username with authorization returns 401")

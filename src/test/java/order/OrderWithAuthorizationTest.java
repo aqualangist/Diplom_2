@@ -6,22 +6,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import stellarburgres.order.Order;
-import stellarburgres.order.OrderClient;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 import stellarburgres.order.Ingredient;
 import stellarburgres.user.UserCredentials;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class OrderWithAuthorizationTest {
-
-    OrderClient orderClient = new OrderClient();
-    UserClient userClient = new UserClient();
-    UserCredentials credentials;
-    User user;
-    String token;
+public class OrderWithAuthorizationTest extends BaseOrderTest {
 
     @Before
     public void setUp() {

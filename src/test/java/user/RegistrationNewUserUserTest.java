@@ -7,7 +7,7 @@ import org.junit.Test;
 import stellarburgres.user.User;
 import stellarburgres.user.UserCredentials;
 
-public class RegistrationNewUserTest extends BaseTest{
+public class RegistrationNewUserUserTest extends BaseUserTest {
 
     @After
     public void tearDown() {

@@ -8,7 +8,7 @@ import org.junit.Test;
 import stellarburgres.user.User;
 import stellarburgres.user.UserCredentials;
 
-public class UpdateEmailToExistingTest extends BaseTest {
+public class UpdateEmailToExistingUserTest extends BaseUserTest {
 
     UserCredentials firstUserCredentials;
     User firstUser;

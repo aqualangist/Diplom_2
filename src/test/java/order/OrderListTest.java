@@ -6,9 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import stellarburgres.order.OrderClient;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 import stellarburgres.user.UserCredentials;
 
 import java.util.ArrayList;
@@ -18,13 +16,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class OrderListTest {
-
-    OrderClient orderClient = new OrderClient();
-    UserClient userClient = new UserClient();
-    UserCredentials credentials;
-    User user;
-    String token;
+public class OrderListTest extends BaseOrderTest {
 
     @Before
     public void setUp() {
