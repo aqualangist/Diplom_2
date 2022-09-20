@@ -6,13 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 import stellarburgres.user.UserCredentials;
 
-public class UserLoginTest {
-
-    UserClient userClient = new UserClient();
-    UserCredentials credentials;
+public class UserLoginTest extends BaseTest {
 
     @Before
     public void setUp() {
@@ -25,7 +21,7 @@ public class UserLoginTest {
 
         userClient.registerWithCorrectUserData(user);
 
-        credentials = UserCredentials.builder()
+        userCredentials = UserCredentials.builder()
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .build();
@@ -33,7 +29,7 @@ public class UserLoginTest {
 
     @After
     public void tearDown() {
-        String token = userClient.loginWithCorrectCredentials(credentials);
+        String token = userClient.loginWithCorrectCredentials(userCredentials);
         userClient.delete(token);
     }
 
@@ -46,8 +42,8 @@ public class UserLoginTest {
             "Status code - 200. Access and refresh tokens are not null values.")
     public void loginWithCorrectUserDataReturnsOkTest() {
         UserCredentials credentialsForLogin = UserCredentials.builder()
-                .email(credentials.getEmail())
-                .password(credentials.getPassword())
+                .email(userCredentials.getEmail())
+                .password(userCredentials.getPassword())
                 .build();
 
         userClient.loginWithCorrectCredentials(credentialsForLogin);
@@ -60,8 +56,8 @@ public class UserLoginTest {
             "Status code - 401. Message - email or password are incorrect.")
     public void loginWithIncorrectLoginReturnsUnauthorizedTest() {
         UserCredentials credentialsForLogin = UserCredentials.builder()
-                .email(credentials.getEmail() + "x")
-                .password(credentials.getPassword())
+                .email(userCredentials.getEmail() + "x")
+                .password(userCredentials.getPassword())
                 .build();
 
         userClient.loginWithIncorrectCredentials(credentialsForLogin);
@@ -74,8 +70,8 @@ public class UserLoginTest {
             "Status code - 401. Message - email or password are incorrect.")
     public void loginWithIncorrectPasswordReturnsUnauthorizedTest() {
         UserCredentials credentialsForLogin = UserCredentials.builder()
-                .email(credentials.getEmail())
-                .password(credentials.getPassword() + "x")
+                .email(userCredentials.getEmail())
+                .password(userCredentials.getPassword() + "x")
                 .build();
 
         userClient.loginWithIncorrectCredentials(credentialsForLogin);

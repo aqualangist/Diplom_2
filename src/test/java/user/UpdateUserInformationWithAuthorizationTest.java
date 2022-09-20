@@ -7,15 +7,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 import stellarburgres.user.UserCredentials;
 
-public class UpdateUserInformationWithAuthorizationTest {
-
-    UserClient userClient = new UserClient();
-    UserCredentials credentials;
-    User user;
-    String token;
+public class UpdateUserInformationWithAuthorizationTest extends BaseTest {
 
     @Before
     public void setUp() {
@@ -28,12 +22,12 @@ public class UpdateUserInformationWithAuthorizationTest {
 
         userClient.registerWithCorrectUserData(user);
 
-        credentials = UserCredentials.builder()
+        userCredentials = UserCredentials.builder()
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .build();
 
-        token = userClient.loginWithCorrectCredentials(credentials);
+        token = userClient.loginWithCorrectCredentials(userCredentials);
     }
 
     @After

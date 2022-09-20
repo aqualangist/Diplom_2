@@ -6,12 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 import stellarburgres.user.UserCredentials;
 
-public class UpdateEmailToExistingTest {
-
-    UserClient userClient = new UserClient();
+public class UpdateEmailToExistingTest extends BaseTest {
 
     UserCredentials firstUserCredentials;
     User firstUser;

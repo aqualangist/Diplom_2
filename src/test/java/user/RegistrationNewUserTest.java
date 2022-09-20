@@ -5,14 +5,9 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Test;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 import stellarburgres.user.UserCredentials;
 
-public class RegistrationNewUserTest {
-
-    UserClient userClient = new UserClient();
-    User credentials;
-    User user;
+public class RegistrationNewUserTest extends BaseTest{
 
     @After
     public void tearDown() {

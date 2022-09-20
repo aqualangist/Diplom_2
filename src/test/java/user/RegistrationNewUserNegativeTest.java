@@ -4,13 +4,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 
-public class RegistrationNewUserNegativeTest {
-
-    UserClient userClient = new UserClient();
-    User credentials;
-    User user;
+public class RegistrationNewUserNegativeTest extends BaseTest {
 
     @Test
     @DisplayName("Create new user without name returns 403")

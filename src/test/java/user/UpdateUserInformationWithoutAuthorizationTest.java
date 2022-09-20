@@ -5,11 +5,8 @@ import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import stellarburgres.user.User;
-import stellarburgres.user.UserClient;
 
-public class UpdateUserInformationWithoutAuthorizationTest {
-
-    UserClient userClient = new UserClient();
+public class UpdateUserInformationWithoutAuthorizationTest extends BaseTest {
 
     @Test
     @DisplayName("Update username with authorization returns 401")
