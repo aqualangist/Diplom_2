@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: order.OrderListTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.476 s <<< FAILURE! - in order.OrderListTest
+getOrderListWithoutAuthorizationTest(order.OrderListTest)  Time elapsed: 3.26 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <429>.
+
+	at order.OrderListTest.getOrderListWithoutAuthorizationTest(OrderListTest.java:57)
+

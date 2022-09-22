@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: user.UpdateEmailToExistingTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.999 s <<< FAILURE! - in user.UpdateEmailToExistingTest
+updateEmailToExistingReturnsForbiddenTest(user.UpdateEmailToExistingTest)  Time elapsed: 0.998 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <429>.
+
+	at user.UpdateEmailToExistingTest.setUp(UpdateEmailToExistingTest.java:38)
+
+updateEmailToExistingReturnsForbiddenTest(user.UpdateEmailToExistingTest)  Time elapsed: 0.998 s  <<< ERROR!
+java.lang.IllegalArgumentException: accessToken cannot be null
+	at user.UpdateEmailToExistingTest.tearDown(UpdateEmailToExistingTest.java:44)
+

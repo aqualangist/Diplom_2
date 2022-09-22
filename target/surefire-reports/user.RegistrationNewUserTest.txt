@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: user.RegistrationNewUserTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.036 s <<< FAILURE! - in user.RegistrationNewUserTest
+createNewUserReturnsOkTest(user.RegistrationNewUserTest)  Time elapsed: 0.428 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+XML path success doesn't match.
+Expected: <true>
+  Actual: <429 Too Many Requests429 Too Many Requestsnullnginx/1.18.0 (Ubuntu)>
+
+	at user.RegistrationNewUserTest.createNewUserReturnsOkTest(RegistrationNewUserTest.java:40)
+
+createNewUserReturnsOkTest(user.RegistrationNewUserTest)  Time elapsed: 0.428 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <401>.
+
+	at user.RegistrationNewUserTest.tearDown(RegistrationNewUserTest.java:24)
+

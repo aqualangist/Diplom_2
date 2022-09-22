@@ -1,0 +1,9 @@
+order\OrderWithAuthorizationTest.class
+user\UpdateEmailToExistingTest.class
+order\OrderWithoutAuthorizationTest.class
+user\UpdateUserInformationWithAuthorizationTest.class
+user\UserLoginTest.class
+order\OrderListTest.class
+user\RegistrationNewUserTest.class
+user\UpdateUserInformationWithoutAuthorizationTest.class
+user\RegistrationNewUserNegativeTest.class
